@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    {% block head %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <title>{% block title %}Template - HelloFlask {% endblock %}</title>
+    {% endblock head%}
+
+<body>
+<nav>
+    <ul><li><a href="{{url_for('index')}}">Home</a> </li></ul>
+</nav>
+<main>
+    {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+    {% block content %}    {% endblock content %}
+</main>
+<footer>
+    {% block footer %}
+    {% endblock footer %}
+</footer>
+{% block script %}{% endblock script %}
+</body>
+</html>

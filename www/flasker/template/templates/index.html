@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% from 'macros.html' import qux %}
+
+{% block content %}
+{% set name='baz' %}
+
+<h1>Template</h1>
+<ul>
+    <li><a href="{{url_for('watchlist')}}">watchlist</a></li>
+</ul>
+{% endblock content %}
+

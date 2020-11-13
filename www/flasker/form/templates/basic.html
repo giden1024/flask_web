@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+    {{ form.csrf_token }}
+    {{ form.username.label }}<br>
+    {{ form.username }}<br>
+    {% for message in form.username.errors %}
+        <samll class="error">{{ message }}</samll><br>
+    {% endfor %}
+    {{ form.password.label }}<br>
+    {{ form.password }}<br>
+    {% for messages in form.password.errors %}
+    <samll class="error">{{ messages }}</samll><br>
+    {% endfor %}
+    {{ form.remember }}
+    {{ form.remember.label }}<br>
+    {{ form.submit }}
+</form>
+{% endblock content %}

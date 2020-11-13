@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block body %}
+    {% if session['username'] == "shiyanlou" %}
+    <p>hello,{{ session['username'] }}</p>
+    {% else %}
+    <p>do you want to <a href="{{ url_for('login') }}">log in</a>?</p>
+    {% endif %}
+    {% endblock %}
+</body>
+</html>

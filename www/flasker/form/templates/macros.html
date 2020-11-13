@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+{% macro form_field(field) %}
+    {{field.label}}<br>
+    {{field(**kwargs)}}<br>
+    {% if field.errors %}
+        {% for error in field.errors %}
+            <small class="error"> {{ error }}</small>
+        {% endfor %}
+    {% endif %}
+{% endmacro %}
+

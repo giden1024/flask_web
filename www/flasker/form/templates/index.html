@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Index Page</h1>
+    <ul>
+    <li><a href="{{ url_for('basic') }}">basic page</a></li>
+    <li><a href="{{ url_for('base') }}">base page</a></li>
+    <li><a href="{{ url_for('basic2') }}">basic page 2</a></li>
+    </ul>
+
+{% endblock content %}

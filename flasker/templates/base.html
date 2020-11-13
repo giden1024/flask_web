@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flasker</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" type="text/css">
+</head>
+<body>
+    <div class="page">
+        <div class="metanav">
+            {% if not session['login']%}
+            <p><a href="{{ url_for('login') }}">login</a></p>
+            {% else%}
+            <p><a href="{{ url_for('logout') }}">logout</a></p>
+            {% endif %}
+        </div>
+    {% block body %}
+    {% with messages = get_flashed_messages() %}
+    {% for message in messages %}
+    <ul class="message">
+        <li><p>{{ message }}</p></li>
+    </ul>
+    </div>
+    {% endfor %} {% endwith %}
+    {% endblock %}
+
+
+</body>
+</html>

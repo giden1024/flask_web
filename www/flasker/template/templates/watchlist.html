@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}{user.username}}'s Watchlist</title> {% endblock title %}
+
+{% block content %}
+<a href="{{url_for('index')}}">Return</a>
+<h2>{{user.username}}</h2>
+{% if user.bio %}
+    <i>{{user.bio}}</i>
+{% else %}
+    <i>this user not provided a bio.</i>
+{% endif %}
+{# 注释可以这样写 #}
+<h5>{{user.username}}'s watchlist ({{movies|length}}):</h5>
+<ul>
+    {% for movie in movies %}
+        <li>{{movie.name}} - {{movie.year}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

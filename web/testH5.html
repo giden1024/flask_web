@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test h5</title>
+    <script type="text/javascript">
+        function allowDrop() {
+
+        }
+    </script>
+
+</head>
+<body>
+    <div style="text-align: center">
+        <audio controls="controls" loop>
+              <source src="file/song.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+    <div style="text-align: center">
+        <button onclick="playPause()">播放/暂停</button>
+        <button onclick="bigger()">放大</button>
+        <button onclick="smaller()">缩小</button><br>
+
+        <video id="video1" controls="controls"  width="400" height="400" style="margin-top:15px;">
+            <source src="file/mov_bbb.mp4" type="video/mp4">
+        </video>
+    </div>
+        <script type="text/javascript">
+        var myVideo = document.getElementById("video1");
+
+        function playPause() {
+            if (myVideo.paused)
+            {
+                myVideo.play()
+            }
+            else
+            {
+                myVideo.pause()
+            }
+
+        }
+        function bigger() {
+            myVideo.height = 500
+            myVideo.width = 500
+
+        }
+        function smaller() {
+            myVideo.height = 200
+            myVideo.width = 200
+        }
+    </script>
+</body>
+</html>
