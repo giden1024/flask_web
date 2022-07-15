@@ -43,11 +43,13 @@ def get_captcha(filepath,filename):
             draw.point((x,y),fill=rndcolor1())
 
     for t in range(4):
-        draw.text((60 * t + 10,10),rndchar(),fill=rndcolor2(),font=font)
-        captcha_code = captcha_code + rndchar()
+        x = rndchar()
+        draw.text((60 * t + 10,10),x,fill=rndcolor2(),font=font)
+        captcha_code = captcha_code + x
+    print(captcha_code)
     image.save(filepath + filename,"jpeg")
 
-    captcha_code = "1234"
+    # captcha_code = "1234"
     return captcha_code
 
 

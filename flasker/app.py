@@ -53,6 +53,11 @@ def show_entries():
     return render_template('show_entries.html')
 
 
+@app.route("/code")
+def get_code():
+    session['cap']
+
+
 @app.route("/add_entry",methods=['POST'])
 def add_entry():
     if not session.get('login'):
@@ -66,10 +71,14 @@ def add_entry():
 @app.route("/login",methods=['GET','POST'])
 def login():
     error = None
-    captcha = get_captcha("static/img/", "captcha.jpeg")
+    captcha = get_captcha("static/img/", "cap.jpeg")
+    session['cap'] = captcha
+    print(captcha)
     if request.method == "POST":
 
-        if request.form.get("captcha") != captcha:
+        if request.form.get("captcha") != session['cap']:
+            print(request.form.get("captcha") + "!")
+            print(session['cap']+"!")
             flash("验证码错误")
         elif request.form.get('username') == app.config.get('USERNAME') and request.form.get('password') == app.config.get('PASSWORD'):
             session['login'] = True
@@ -99,7 +108,8 @@ def new():
     return redirect(url_for("show_entries"))
 
 
+
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True,host="127.0.0.2")
 
 
